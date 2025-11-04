@@ -41,12 +41,13 @@ http://localhost:8080/index.php
 
 ## 🧰 Estrutura do projeto
 
+```plaintext
 Gerar-Senha-HASH/
 │
-├── index.php # Arquivo principal (PHP + HTML + CSS + JS)
-├── logo-oliveirapc.png (pode substituir pela sua logo e alterar no codigo)
-└── README.md # Este arquivo
-
+├── index.php              # Arquivo principal (PHP + HTML + CSS + JS)
+├── logo-oliveirapc.png    # (pode substituir pela sua logo e alterar no código)
+└── README.md              # Este arquivo
+```
 ---
 
 ## 📸 Exemplo de uso
