@@ -26,16 +26,24 @@ Permite também inserir manualmente uma string hexadecimal e gerar seu hash corr
 ## ⚙️ Como usar
 
 1. Clone este repositório:
-git clone https://github.com/Oliveira-PC/Gerar-Senha-HASH.git
+   ```bash
+   git clone https://github.com/Oliveira-PC/Gerar-Senha-HASH.git
+   ```
 
 2. Acesse a pasta:
-cd Gerar-Senha-HASH
+   ```bash
+   cd Gerar-Senha-HASH
+   ```
 
 3. Inicie o servidor PHP local:
-php -S localhost:8080
+   ```bash
+   php -S localhost:8080
+   ```
 
 4. Abra no navegador:
-http://localhost:8080/index.php
+   ```
+   http://localhost:8080/index.php
+   ```
 
 ---
 
@@ -48,6 +56,7 @@ Gerar-Senha-HASH/
 ├── logo-oliveirapc.png    # (pode substituir pela sua logo e alterar no código)
 └── README.md              # Este arquivo
 ```
+
 ---
 
 ## 📸 Exemplo de uso
