@@ -45,16 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $generated_hash = password_hash($generated_hex, PASSWORD_DEFAULT);
     }
 
-    // === Converter hex fornecida para hash ===
+    // === Converter senha fornecida para hash ===
     if (!empty($_POST['action']) && $_POST['action'] === 'convert_hex') {
         $user_hex = trim($_POST['user_hex'] ?? '');
 
         if ($user_hex === '') {
-            $messages[] = "Por favor, informe a string hexadecimal.";
-        } elseif (!ctype_xdigit($user_hex)) {
-            $messages[] = "String inválida: apenas caracteres hexadecimais (0-9, a-f, A-F) são permitidos.";
+            $messages[] = "Por favor, informe a sua senha";
         } else {
-            $user_hex       = strtolower($user_hex);
             $converted_hash = password_hash($user_hex, PASSWORD_DEFAULT);
         }
     }
@@ -219,19 +216,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <!-- ============================================================= -->
-    <!--  CONVERTER HEX PARA HASH -->
+    <!--  CONVERTER SENHA PARA HASH -->
     <!-- ============================================================= -->
     <div class="card">
         <h2>Converter Senha para hash</h2>
 
         <form method="post">
             <label>Digite a Senha</label>
-            <input type="text" name="user_hex" placeholder="ex: 1a2b3c4d">
+            <input type="text" name="user_hex">
             <button type="submit" name="action" value="convert_hex">Converter para hash</button>
         </form>
 
         <?php if ($converted_hash): ?>
             <div class="ok">
+                <strong>Senha Original</strong>
+                <pre id="user_hex"><?php echo htmlspecialchars($user_hex); ?></pre>
+                <div style="display:flex;gap:8px;margin-top:6px">
+                    <button class="copy-btn" onclick="copyToClipboard('user_hex')">Copiar Senha</button>
+                </div>
+
                 <strong>Senha Hash gerada</strong>
                 <pre id="converted_hash"><?php echo htmlspecialchars($converted_hash); ?></pre>
                 <div style="display:flex;gap:8px;margin-top:6px">
@@ -240,7 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         <?php endif; ?>
     </div>
-
+    
     <hr>
     <p class="small"><strong>Observações:</strong></p>
     <ul class="small">
@@ -256,3 +259,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
+
